@@ -1,14 +1,18 @@
 /* eslint-disable prettier/prettier */
-import { IUserRepository } from '../interfaces/repository.interface';
+import { Injectable } from '@nestjs/common';
 
-export class UserRepository implements IUserRepository {
+import { IUserRepository } from '../interfaces/repository.interface';
+import { users } from 'src/infra/database/fake-db';
+
+@Injectable()
+export class UserFakeRepository implements IUserRepository {
   create(data: any) {
-    console.log(data);
+    users.push(data);
   }
   findAll() {
-    console.log(`retornando todos os usuarios`);
+    console.log(users);
   }
-  findById(id: string) {
-    console.log(`retornando todos o usario ${id}`);
+  findById(id: number) {
+    console.log(users.at(id));
   }
 }
