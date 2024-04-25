@@ -9,6 +9,6 @@ export default class FindUserUseCase {
   ) {}
 
   async execute() {
-    this.userRepository.findAll();
+    return await this.userRepository.findAll();
   }
 }

@@ -11,14 +11,20 @@ export class UserTypeOrmRepository implements IUserRepository {
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
 
-  create(data: any) {
+  async create(data: any) {
     const newUser = new User();
 
     newUser.user_id = String(Date.now());
     newUser.name = 'teste';
     newUser.age = 888;
     newUser.createdAt = new Date();
+
+    await this.userRepository.save(newUser);
   }
-  findAll() {}
-  findById(id: number) {}
+  async findAll() {
+    return await this.userRepository.find();
+  }
+  findById(id: number) {
+    console.log('id');
+  }
 }

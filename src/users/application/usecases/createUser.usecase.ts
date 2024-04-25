@@ -5,7 +5,7 @@ import { UserEntity } from 'src/users/domain/entities/user.entity';
 @Injectable()
 export default class CreateUserUseCase {
   constructor(
-    @Inject('teste_repo')
+    @Inject('typeorm_repo')
     private readonly userRepository: IUserRepository,
   ) {}
 
@@ -16,6 +16,6 @@ export default class CreateUserUseCase {
 
     usuario.create();
 
-    this.userRepository.create(usuario);
+    await this.userRepository.create(usuario);
   }
 }

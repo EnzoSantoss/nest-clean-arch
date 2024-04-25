@@ -22,6 +22,6 @@ export class UsersController {
 
   @Get()
   getAllUsers() {
-    this.findUserUseCase.execute();
+    return this.findUserUseCase.execute();
   }
 }
