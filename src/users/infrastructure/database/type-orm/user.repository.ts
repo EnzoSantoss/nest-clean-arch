@@ -22,7 +22,9 @@ export class UserTypeOrmRepository implements IUserRepository {
     await this.userRepository.save(newUser);
   }
   async findAll() {
-    return await this.userRepository.find();
+    const users = await this.userRepository.find({});
+    console.log(users);
+    return users;
   }
   findById(id: number) {
     console.log('id');
