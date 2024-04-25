@@ -5,7 +5,7 @@ import { UsersModule } from './users/infrastructure/users.module';
 import { DataSource } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { UserModel } from './users/infrastructure/database/type-orm/user.model';
+import { User } from './users/infrastructure/database/type-orm/user.model';
 
 @Module({
   imports: [
@@ -16,7 +16,7 @@ import { UserModel } from './users/infrastructure/database/type-orm/user.model';
       username: 'enzo',
       password: 'enzo1234',
       database: 'meu_banco_teste',
-      entities: [UserModel], //TypeOrm entity = Models
+      entities: [User], //TypeOrm entity = Models
       synchronize: true,
     }),
     UsersModule,
