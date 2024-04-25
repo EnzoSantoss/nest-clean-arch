@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common';
 
 import { IUserRepository } from '../interfaces/repository.interface';
-import { users } from 'src/infra/database/fake-db';
+import { users } from 'src/users/infrastructure/database/fake-db/fake-db';
 
 @Injectable()
 export class UserFakeRepository implements IUserRepository {

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IUserRepository } from 'src/users/infrastructure/interfaces/repository.interface';
+import { IUserRepository } from 'src/users/infrastructure/database/fake-db/interfaces/repository.interface';
 
 @Injectable()
 export default class FindUserUseCase {
