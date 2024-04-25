@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 
-import { IUserRepository } from '../interfaces/repository.interface';
+//import { IUserRepository } from '../interfaces/repository.interface';
+import { IUserRepository } from 'src/users/domain/repositories/user.repository';
 import { users } from 'src/users/infrastructure/database/fake-db/fake-db';
 
 @Injectable()
