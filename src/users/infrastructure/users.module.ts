@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { UsersController } from './users.controller';
-import { UserFakeRepository } from './gateways/repositories/user.repository';
-import CreateUserUseCase from './usecases/createUser.usecase';
-import FindUserUseCase from './usecases/findAllUser.usecase';
+import { UserFakeRepository } from './repositories/user.repository';
+import CreateUserUseCase from '../application/usecases/createUser.usecase';
+import FindUserUseCase from '../application/usecases/findAllUser.usecase';
 
 @Module({
   controllers: [UsersController],
