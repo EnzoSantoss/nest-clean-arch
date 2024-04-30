@@ -12,13 +12,18 @@ export class BookTypeOrmRepository implements IBookRepository {
     @InjectRepository(Book) private bookRepository: Repository<Book>,
   ) {}
 
-  create(input: any) {
-    //const user;
-    // const newBook = new Book();
-    // newBook.book_id = String(Date.now());
-    // newBook.type_of = input?.type_of;
-    // newBook.value = input?.value;
-    // newBook.console.log(input);
+  async create(input: any, user: any) {
+    const userRelated = user;
+    const newBook = new Book();
+
+    newBook.book_id = String(Date.now());
+    newBook.type_of = input?.type_of;
+    newBook.value = input?.value;
+    newBook.user = userRelated;
+    newBook.createdAt = new Date();
+
+    console.log(newBook);
+    await this.bookRepository.save(newBook);
   }
 
   delete(book_id: string) {

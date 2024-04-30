@@ -13,7 +13,7 @@ export class UserFakeRepository implements IUserRepository {
   findAll() {
     console.log(users);
   }
-  findById(id: number) {
-    console.log(users.at(id));
+  findById(id: string) {
+    //console.log(users.at(id));
   }
 }

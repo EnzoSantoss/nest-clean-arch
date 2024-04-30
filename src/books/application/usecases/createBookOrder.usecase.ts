@@ -13,7 +13,8 @@ export class CreateBookOrder {
     private readonly userRepository: IUserRepository,
   ) {}
 
-  execute(input: any) {
-    this.bookRepository.create(input);
+  async execute(input: any) {
+    const user = await this.userRepository.findById(input?.user_id);
+    this.bookRepository.create(input, user);
   }
 }

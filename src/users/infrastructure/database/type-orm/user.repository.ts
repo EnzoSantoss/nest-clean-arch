@@ -26,7 +26,13 @@ export class UserTypeOrmRepository implements IUserRepository {
     console.log(users);
     return users;
   }
-  findById(id: number) {
-    console.log('id');
+  async findById(id: string) {
+    const user = await this.userRepository.findOne({
+      where: {
+        user_id: id,
+      },
+    });
+
+    return user;
   }
 }
