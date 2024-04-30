@@ -7,14 +7,11 @@ import { IUserRepository } from 'src/users/domain/repositories/user.repository';
 export class CreateBookOrder {
   constructor(
     @Inject('type_repo')
-    private readonly bookRepository: IBookRepository,
-
-    @Inject('teste')
-    private readonly userRepository: IUserRepository,
+    private readonly bookRepository: IBookRepository, // @Inject('teste') // private readonly userRepository: IUserRepository,
   ) {}
 
   async execute(input: any) {
-    const user = await this.userRepository.findById(input?.user_id);
-    this.bookRepository.create(input, user);
+    //const user = await this.userRepository.findById(input?.user_id);
+    this.bookRepository.create(input);
   }
 }

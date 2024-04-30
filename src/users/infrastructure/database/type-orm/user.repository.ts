@@ -1,14 +1,15 @@
-/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { IUserRepository } from 'src/users/domain/repositories/user.repository';
 import { User } from './user.model';
 import { Repository } from 'typeorm';
+import { Connection } from 'mysql2';
 
 @Injectable()
 export class UserTypeOrmRepository implements IUserRepository {
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
+    @InjectDataSource() private readonly connection: Connection,
   ) {}
 
   async create(data: any) {
@@ -22,9 +23,11 @@ export class UserTypeOrmRepository implements IUserRepository {
     await this.userRepository.save(newUser);
   }
   async findAll() {
-    const users = await this.userRepository.find({});
-    console.log(users);
-    return users;
+    // const users = await this.userRepository.find({});
+    // console.log(users);
+    // return users;
+    const teste = await this.connection.query(`SELECT * FROM user`);
+    console.log(teste);
   }
   async findById(id: string) {
     const user = await this.userRepository.findOne({

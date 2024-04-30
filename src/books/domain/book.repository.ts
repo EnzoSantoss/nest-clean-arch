@@ -1,4 +1,4 @@
 export interface IBookRepository {
-  create(input: any, user: any);
+  create(input: any);
   delete(book_id: string);
 }

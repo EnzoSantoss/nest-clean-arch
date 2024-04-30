@@ -6,10 +6,11 @@ import { BookTypeOrmRepository } from './database/type-orm/book.repository';
 import { CreateBookOrder } from '../application/usecases/createBookOrder.usecase';
 import { UsersModule } from 'src/users/infrastructure/users.module';
 import { UserTypeOrmRepository } from 'src/users/infrastructure/database/type-orm/user.repository';
+import { User } from 'src/users/infrastructure/database/type-orm/user.model';
 
 @Module({
   controllers: [BooksController],
-  imports: [TypeOrmModule.forFeature([Book]), UsersModule],
+  imports: [TypeOrmModule.forFeature([Book, User])],
   providers: [
     BookTypeOrmRepository,
     CreateBookOrder,
@@ -18,10 +19,10 @@ import { UserTypeOrmRepository } from 'src/users/infrastructure/database/type-or
       useExisting: BookTypeOrmRepository,
     },
 
-    {
-      provide: 'teste',
-      useExisting: UserTypeOrmRepository,
-    },
+    // {
+    //   provide: 'teste',
+    //   useExisting: UserTypeOrmRepository,
+    // },
   ],
 })
 export class BooksModule {}
