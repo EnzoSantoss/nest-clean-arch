@@ -1,9 +1,9 @@
-type UserProps = {
-  name: string;
-  age: number;
-  user_id?: string;
-  createdAt?: Date;
-};
+// type UserProps = {
+//   name: string;
+//   age: number;
+//   user_id?: string;
+//   createdAt?: Date;
+// };
 
 export class UserEntity {
   constructor(

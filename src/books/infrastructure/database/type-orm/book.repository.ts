@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IBookRepository } from 'src/books/domain/book.repository';
 
 import { Book } from './book.model';
-import { UserEntity } from 'src/users/domain/entities/user.entity';
+//import { UserEntity } from 'src/users/domain/entities/user.entity';
 import { User } from 'src/users/infrastructure/database/type-orm/user.model';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';

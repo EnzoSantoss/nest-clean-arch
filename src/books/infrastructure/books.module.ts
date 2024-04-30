@@ -4,8 +4,8 @@ import { Book } from './database/type-orm/book.model';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BookTypeOrmRepository } from './database/type-orm/book.repository';
 import { CreateBookOrder } from '../application/usecases/createBookOrder.usecase';
-import { UsersModule } from 'src/users/infrastructure/users.module';
-import { UserTypeOrmRepository } from 'src/users/infrastructure/database/type-orm/user.repository';
+// import { UsersModule } from 'src/users/infrastructure/users.module';
+// import { UserTypeOrmRepository } from 'src/users/infrastructure/database/type-orm/user.repository';
 import { User } from 'src/users/infrastructure/database/type-orm/user.model';
 
 @Module({
