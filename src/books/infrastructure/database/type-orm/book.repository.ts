@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { IBookRepository } from 'src/books/domain/book.entity';
+import { IBookRepository } from 'src/books/domain/book.repository';
 
 import { Book } from './book.model';
+import { User } from 'src/users/infrastructure/database/type-orm/user.model';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -12,7 +13,12 @@ export class BookTypeOrmRepository implements IBookRepository {
   ) {}
 
   create(input: any) {
-    console.log(input);
+    //const user;
+    // const newBook = new Book();
+    // newBook.book_id = String(Date.now());
+    // newBook.type_of = input?.type_of;
+    // newBook.value = input?.value;
+    // newBook.console.log(input);
   }
 
   delete(book_id: string) {

@@ -29,6 +29,8 @@ import { UserTypeOrmRepository } from './database/type-orm/user.repository';
   ],
 
   imports: [TypeOrmModule.forFeature([User])],
+
+  exports: [UserTypeOrmRepository],
 })
 export class UsersModule {
   //constructor(private dataSource: DataSource) {}
