@@ -10,8 +10,6 @@ export default class CreateUserUseCase {
   ) {}
 
   async execute(input: any) {
-    console.log(input);
-
     const usuario = new UserEntity(input.name, input.age);
 
     usuario.create();

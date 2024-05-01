@@ -16,18 +16,36 @@ export class UserTypeOrmRepository implements IUserRepository {
     const newUser = new User();
 
     newUser.user_id = String(Date.now());
-    newUser.name = 'teste';
-    newUser.age = 888;
+    newUser.name = data?.name;
+    newUser.age = data?.age;
     newUser.createdAt = new Date();
 
     await this.userRepository.save(newUser);
   }
   async findAll() {
-    // const users = await this.userRepository.find({});
-    // console.log(users);
-    // return users;
-    const teste = await this.connection.query(`SELECT * FROM user`);
-    console.log(teste);
+    const allUsers = await this.connection.query(`
+    SELECT 
+    user.user_id AS u_id,
+    user.name,
+    user.age,
+    book.*,
+
+    CASE 
+    WHEN user.age > 10
+      THEN 'older than 10'
+    WHEN user.age = 10
+      THEN 'equals 10'
+    ELSE
+      'some other option'    
+
+    END AS 'teste_colum'
+    
+    FROM user
+    LEFT JOIN book
+    ON user.user_id = book.user_id
+    `);
+
+    return allUsers;
   }
   async findById(id: string) {
     const user = await this.userRepository.findOne({
@@ -35,6 +53,17 @@ export class UserTypeOrmRepository implements IUserRepository {
         user_id: id,
       },
     });
+
+    // const user = this.connection.query(`
+    // SELECT
+    // user.user_id AS u_id,
+    // user.name,
+    // user.age,
+    // book.*
+
+    // LEFT JOIN book
+    // ON user.user_id = book.user_id
+    // `);
 
     return user;
   }
