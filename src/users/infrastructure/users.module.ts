@@ -7,6 +7,7 @@ import { User } from './database/type-orm/user.model';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { UserTypeOrmRepository } from './database/type-orm/user.repository';
+import { FindUserByIdUseCase } from '../application/usecases/findUserById.usecase';
 //import { DataSource } from 'typeorm';
 
 @Module({
@@ -15,6 +16,7 @@ import { UserTypeOrmRepository } from './database/type-orm/user.repository';
     UserFakeRepository,
     CreateUserUseCase,
     FindUserUseCase,
+    FindUserByIdUseCase,
     UserTypeOrmRepository,
 
     {
