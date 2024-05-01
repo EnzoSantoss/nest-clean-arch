@@ -26,11 +26,11 @@ export class BookTypeOrmRepository implements IBookRepository {
     newBook.book_id = String(Date.now());
     newBook.type_of = input?.type_of;
     newBook.value = input?.value;
-    //newBook.user = user;
+    newBook.user = user;
     newBook.createdAt = new Date();
 
     console.log(newBook);
-    //await this.bookRepository.save(newBook);
+    await this.bookRepository.save(newBook);
   }
 
   delete(book_id: string) {
